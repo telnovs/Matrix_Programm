@@ -16,8 +16,8 @@
             <#list matrices as matrix>
                 <tr>
                     <td>${matrix.id}</td>
-                    <td>${matrix.size}</td>
                     <td>${matrix.name}</td>
+                    <td>${matrix.size}</td>
                 </tr>
             <#else >
                 Нет записей
