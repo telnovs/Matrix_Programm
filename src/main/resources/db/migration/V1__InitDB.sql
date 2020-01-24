@@ -3,7 +3,6 @@ create table matrices
 (
     id     int8 not null,
     name   varchar(255),
-    size   integer,
     primary key (id)
 );
 alter table matrices

@@ -9,7 +9,6 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Имя матрицы</th>
-                <th scope="col">Размер</th>
             </tr>
             </thead>
             <tbody>
@@ -17,7 +16,6 @@
                 <tr>
                     <td>${matrix.id}</td>
                     <td>${matrix.name}</td>
-                    <td>${matrix.size}</td>
                 </tr>
             <#else >
                 Нет записей

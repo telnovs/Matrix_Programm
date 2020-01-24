@@ -20,6 +20,4 @@ public class Matrix {
 
     @Column(unique = true)
     private String name;
-
-    private Integer size;
 }
