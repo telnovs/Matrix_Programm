@@ -1,6 +1,8 @@
 package com.example.matrix.controller;
 
+import com.example.matrix.model.BakedFrame;
 import com.example.matrix.model.Matrix;
+import com.example.matrix.repository.BakedFrameRepository;
 import com.example.matrix.repository.MatrixRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,7 +25,7 @@ public class MatrixController {
     public MatrixController(MatrixRepository matrixRepository) {
         this.matrixRepository = matrixRepository;
     }
-
+    
     @GetMapping("/")
     public String index(Model model) {
         List<Matrix> matrices = matrixRepository.findAll();
