@@ -1,7 +1,7 @@
 package com.example.matrix.model;
 
 import lombok.Data;
-
+import java.util.Set;
 import javax.persistence.*;
 
 /**
@@ -10,6 +10,7 @@ import javax.persistence.*;
  * @author Kamyhin Alexander
  * @version 1.0
  */
+
 @Entity
 @Data
 @Table(name = "matrices")
