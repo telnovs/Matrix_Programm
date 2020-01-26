@@ -21,7 +21,4 @@ public class Matrix {
 
     @Column(unique = true)
     private String name;
-    
-    @OneToMany(mappedBy = "matrix", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<BakedFrame> bakedFrames;
 }
