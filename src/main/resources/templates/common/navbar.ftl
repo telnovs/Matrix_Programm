@@ -13,5 +13,22 @@
 				<a class="nav-link" href="/">Список матриц<span class="sr-only">(current)</span></a>            
             </li>
         </ul>
+
+        <ul class="navbar-nav my-2 my-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="/admin/matrices/types">
+                    <i class="material-icons">
+                        settings_applications
+                    </i>
+                </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/">
+                    <i class="material-icons">
+                        exit_to_app
+                    </i>
+                </a>
+            </li>
+        </ul>
     </div>
 </nav>
