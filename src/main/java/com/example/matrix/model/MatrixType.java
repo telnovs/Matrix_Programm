@@ -4,32 +4,29 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Set;
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 /**
- * Matrix
+ * MatrixType
  *
  * @author Kamyhin Alexander
  * @version 1.0
  */
-
 @Entity
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
-@Table(name = "matrices")
-public class Matrix {
+@Table(name = "matrix_types")
+public class MatrixType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch=FetchType.EAGER)
-    @JoinColumn(name="type")
-    private MatrixType type;
+    @Column(unique = true)
+    @NotBlank(message = "Name cannot be empty")
+    private String name;
 
-    private Integer size;
-    private String serial;
-    private Integer number;
-    private Boolean visible;
+    public MatrixType(String name) {
+        this.name = name;
+    }
 }
