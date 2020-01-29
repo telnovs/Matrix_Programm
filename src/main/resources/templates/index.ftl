@@ -18,7 +18,7 @@
             <#list matrices as matrix>
                 <tr>
                     <td>${matrix.id}</td>
-                    <td>${matrix.name}</td>
+                    <td>${matrix.type.getName()} (${matrix.getSize()}) - ${matrix.getNumber()}</td>
                     <td><button onclick="window.location.href = '/newbake/${matrix.id}';">Выпечь!</button></td>
                 </tr>
             <#else >
@@ -32,7 +32,7 @@
             <thead>
             <tr>
                 <th scope="col">Дата</th>
-                <th scope="col">Имя матрицы</th>
+                <th scope="col">Матрица</th>
                 <th scope="col">Время 1</th>
                 <th scope="col">Время 2</th>
                 <th scope="col">Результат</th>
@@ -43,10 +43,10 @@
             <#list bakedFrames as bakedFrame>
                 <tr>
                     <td>${bakedFrame.timestamp}</td>
-                    <td>${bakedFrame.matrix.name}</td>
+                    <td>${bakedFrame.matrix.type.getName()} (${bakedFrame.matrix.getSize()}) - ${bakedFrame.matrix.getNumber()}</td>
                     <td>${bakedFrame.bakingTime1}</td>
                     <td><#if bakedFrame.bakingTime2??>${bakedFrame.bakingTime2}</#if></td>
-                    <td>${bakedFrame.succes?string('ОК', 'брак')}</td>
+                    <td>${bakedFrame.success?string('ОК', 'брак')}</td>
                     <td>&nbsp;</td>
                 </tr>
             <#else >
