@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 import lombok.Data;
 
@@ -29,13 +30,19 @@ public class Matrix {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+	@NotBlank(message = "Type cannot be empty")
     @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="type")
     private MatrixType type;
 
+	@NotBlank(message = "Size cannot be empty")
     private Integer size;
     private String serial;
+    
+    @NotBlank(message = "Number cannot be empty")
     private Integer number;
+    
+    
     private Boolean visible;
     
     public String getName() {

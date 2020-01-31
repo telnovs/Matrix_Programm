@@ -14,7 +14,7 @@ create table matrices
     size   int4,
     serial varchar(255),
     number int4,
-    visible boolean default(true),
+    visible boolean default(false),
     primary key (id)
 );
 
