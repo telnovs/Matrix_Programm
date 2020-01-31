@@ -1,14 +1,13 @@
 package com.example.matrix.service;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.example.matrix.model.MatrixType;
 import com.example.matrix.repository.MatrixRepository;
 import com.example.matrix.repository.MatrixTypeRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.ExampleMatcher;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * MatrixTypeService
@@ -19,10 +18,12 @@ import java.util.List;
 @Service
 public class MatrixTypeService {
     private MatrixTypeRepository matrixTypeRepository;
-
+    private MatrixRepository matrixRepository;
+    
     @Autowired
-    public MatrixTypeService(MatrixTypeRepository matrixTypeRepository) {
+    public MatrixTypeService(MatrixTypeRepository matrixTypeRepository, MatrixRepository matrixRepository) {
         this.matrixTypeRepository = matrixTypeRepository;
+        this.matrixRepository = matrixRepository;
     }
 
     public List<MatrixType> findAll() {
@@ -38,10 +39,7 @@ public class MatrixTypeService {
 
         return false;
     }
-    
-    @Autowired
-    private MatrixRepository matrixRepository;
-    
+        
     public boolean delete(MatrixType matrixType) {
     	if (matrixRepository.existsByType(matrixType)) return false;
     	matrixTypeRepository.delete(matrixType);
