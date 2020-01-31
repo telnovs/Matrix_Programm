@@ -18,7 +18,7 @@
             <#list matrices as matrix>
                 <tr>
                     <td>${matrix.id}</td>
-                    <td>${matrix.type.getName()} (${matrix.getSize()}) - ${matrix.getNumber()}</td>
+                    <td>${matrix.name}</td>
                     <td><button onclick="window.location.href = '/newbake/${matrix.id}';">Выпечь!</button></td>
                 </tr>
             <#else >
@@ -43,7 +43,7 @@
             <#list bakedFrames as bakedFrame>
                 <tr>
                     <td>${bakedFrame.timestamp}</td>
-                    <td>${bakedFrame.matrix.type.getName()} (${bakedFrame.matrix.getSize()}) - ${bakedFrame.matrix.getNumber()}</td>
+                    <td>${bakedFrame.matrix.name}</td>
                     <td>${bakedFrame.bakingTime1}</td>
                     <td><#if bakedFrame.bakingTime2??>${bakedFrame.bakingTime2}</#if></td>
                     <td>${bakedFrame.success?string('ОК', 'брак')}</td>

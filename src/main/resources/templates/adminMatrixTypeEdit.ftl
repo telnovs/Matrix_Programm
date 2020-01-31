@@ -16,7 +16,7 @@
             <div class="col-md-12">
                 <p class="h4">Редактирование типа </p>
             </div>
-            <form action="/admin/matrices/types/${matrixType.id}" method="post" class="pt-3">
+            <form action="/admin/matrices/types/edit/${matrixType.id}" method="post" class="pt-3">
                 <div class="form-group col-md-4">
                     <label for="name">Наименование</label>
                     <input type="text" class="form-control" name="name" id="name" value="${matrixType.name}"/>

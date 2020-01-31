@@ -1,11 +1,15 @@
 package com.example.matrix.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-import java.util.Set;
-import javax.persistence.*;
+import lombok.Data;
 
 /**
  * Matrix
@@ -16,11 +20,12 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "matrices")
 public class Matrix {
-    @Id
+	public Matrix() {
+		super();
+	}
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -32,4 +37,26 @@ public class Matrix {
     private String serial;
     private Integer number;
     private Boolean visible;
+    
+    public String getName() {
+    	return type.getName() + " " + size.toString() + "(" + number.toString() + ")";
+    }
+    public Long getId() {
+		return id;
+	}
+	public MatrixType getType() {
+		return type;
+	}
+	public Integer getSize() {
+		return size;
+	}
+	public String getSerial() {
+		return serial;
+	}
+	public Integer getNumber() {
+		return number;
+	}
+	public Boolean getVisible() {
+		return visible;
+	}
 }

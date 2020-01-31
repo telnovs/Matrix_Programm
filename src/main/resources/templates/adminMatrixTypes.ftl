@@ -34,9 +34,16 @@
                     <tr>
                         <td>${type.name}</td>
                         <td>
-                            <a href="/admin/matrices/types/${type.id}">
+                            <a href="/admin/matrices/types/edit/${type.id}">
                                 <i class="material-icons">
                                     edit
+                                </i>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="/admin/matrices/types/delete/${type.id}">
+                                <i class="material-icons">
+                                    delete
                                 </i>
                             </a>
                         </td>

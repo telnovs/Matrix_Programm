@@ -40,4 +40,31 @@ public class BakedFrame {
 	@Column(name="id_in_1c")
 	private String idIn1C;
 	
+	public Long getId() {
+		return id;
+	}
+
+	public java.time.LocalDateTime getTimestamp() {
+		return timestamp;
+	}
+
+	public Matrix getMatrix() {
+		return matrix;
+	}
+
+	public java.time.LocalTime getBakingTime1() {
+		return bakingTime1;
+	}
+
+	public java.time.LocalTime getBakingTime2() {
+		return bakingTime2;
+	}
+
+	public Boolean getSuccess() {
+		return success;
+	}
+
+	public String getIdIn1C() {
+		return idIn1C;
+	}
 }
