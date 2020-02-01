@@ -1,19 +1,20 @@
 create sequence hibernate_sequence start with 1 increment by 1;
-create table matrices
-(
-    id     int8 not null,
-    type   int8,
-    size   int4,
-    serial varchar(255),
-    number int4,
-    visible boolean default(true),
-    primary key (id)
-);
 
 create table matrix_types
 (
     id   int8 identity,
     name varchar(255) unique,
+    primary key (id)
+);
+
+create table matrices
+(
+    id     int8 not null,
+    type   int8 references matrix_types(id),
+    size   int4,
+    serial varchar(255),
+    number int4,
+    visible boolean default(false),
     primary key (id)
 );
 

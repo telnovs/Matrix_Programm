@@ -4,10 +4,10 @@ VALUES (1, 'ЮниЛайн'),
        (3, 'Кольцо Трикуспидальное'),
        (4, 'Кольцо ЮниЛайн');
 
-INSERT INTO matrices (id, type, size, serial, number)
-VALUES (1, 2, 25, '123654978', 1),
-       (2, 1, 23, '335664611', 1),
-       (3, 1, 23, '546984132', 2);
+INSERT INTO matrices (id, type, size, serial, number, visible)
+VALUES (1, 2, 25, '123654978', 1, true),
+       (2, 1, 23, '335664611', 1, true),
+       (3, 1, 23, '546984132', 2, true);
 
 INSERT INTO baked_frames (timestamp, matrix_id, baking_time_1, baking_time_2, success)
 VALUES

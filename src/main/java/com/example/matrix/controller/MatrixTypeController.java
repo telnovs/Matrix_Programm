@@ -53,13 +53,13 @@ public class MatrixTypeController {
         return "redirect:/admin/matrices/types";
     }
 
-    @GetMapping("{matrixType}")
+    @GetMapping("edit/{matrixType}")
     public String getType(@PathVariable MatrixType matrixType, Model model) {
         model.addAttribute("matrixType", matrixType);
         return "adminMatrixTypeEdit";
     }
-
-    @PostMapping("{matrixType}")
+    
+    @PostMapping("edit/{matrixType}")
     public String updateType(
             @PathVariable MatrixType matrixType,
             @RequestParam String name,
@@ -78,5 +78,23 @@ public class MatrixTypeController {
             return "adminMatrixTypeEdit";
         }
         return "redirect:/admin/matrices/types";
+    }
+    
+    @GetMapping("delete/{matrixType}")
+    public String deleteTypeConfirm(@PathVariable MatrixType matrixType, Model model) {
+        model.addAttribute("actionURL", matrixType.getId()+"/confirmed");
+        model.addAttribute("messageForConfirm", "Удаление типа матрицы: " + matrixType.getName());
+        return "adminDialogConfirm";
+    }
+    
+    @GetMapping("delete/{matrixType}/confirmed")
+    public String deleteType(@PathVariable MatrixType matrixType, Model model) {
+    	if (!matrixTypeService.delete(matrixType)) {
+    		model.addAttribute("actionURL", "");
+            model.addAttribute("messageForConfirm", "Удаление типа матрицы: " + matrixType.getName());
+            model.addAttribute("message", "Существуют матрицы с типом " + matrixType.getName() + " Тип матрицы не может быть удален!");
+            return "adminDialogConfirm";
+    	};
+    	return "redirect:/admin/matrices/types";
     }
 }
